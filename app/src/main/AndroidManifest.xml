@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.project.keywordnews">
+
+    <!-- 권한 추가 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 스플래시 액티비티 -->
+        <activity
+            android:name=".Activity_Splash"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 로그인 액티비티 -->
+        <activity android:name=".Activity_Login" android:configChanges="orientation|keyboard"></activity>
+        <!-- 회원가입 액티비티 -->
+        <activity android:name=".Activity_Join" android:configChanges="orientation|keyboard"></activity>
+        <!-- 메인 액티비티 -->
+        <activity android:name=".MainActivity" android:configChanges="orientation|keyboard" android:exported="true"></activity>
+        <!-- 웹뷰 액티비티 -->
+        <activity android:name=".Activity_Webview" android:configChanges="orientation|keyboard" android:label="Activity_webview"></activity>
+        <!-- 키워드 액티비티 -->
+        <activity android:name=".Activity_Keyword" android:configChanges="orientation|keyboard" android:label="Activity_Keyword"></activity>
+
+
+
+        <!-- facebook 공유 -->
+        <!-- 페이스북 앱 아이디 추가 (https://developers.facebook.com/docs/android/getting-started#app_id) -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+        <!-- (이미지 또는 동영상 전송) Android용 Facebook 앱을 통해 링크, 이미지 또는 동영상을 공유하는 경우 매니페스트에 FacebookContentProvider도 선언해야 합니다.
+             authorities 값의 끝에 앱 ID를 추가합니다. 예를 들어, Facebook 앱 ID가 1234이면 선언은 다음과 같아야 합니다.
+             https://developers.facebook.com/docs/android/getting-started#app_id -->
+        <provider
+            android:authorities="com.facebook.app.FacebookContentProvider590716717960995"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
+
+
+        <!-- google 푸시 -->
+        <!-- 추가 -->
+        <service
+            android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!-- (선택사항) 애플리케이션 구성요소에 기본 아이콘 및 색상을 설정하는 메타데이터 요소를 추가합니다.
+             Android는 수신 메시지에 아이콘 또는 색상이 명시적으로 설정되지 않은 경우 이 값을 사용합니다.
+             https://firebase.google.com/docs/cloud-messaging/android/client -->
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <!--
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_ic_notification" />
+        -->
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        -->
+
+        <!-- 추가 -->
+        <!-- (Optional) Android 8.0(API 수준 26) 이상부터는 알림 채널이 지원 및 권장됩니다.
+             FCM은 기본적인 설정과 함께 기본 알림 채널을 제공합니다.
+             기본 채널을 직접 만들어 사용하려면 아래와 같이 default_notification_channel_id를 알림 채널 개체의 ID로 설정합니다.
+             수신 메시지에 알림 채널이 명시적으로 설정되지 않았으면 FCM에서 이 값을 사용합니다.
+             자세한 내용은 알림 채널 관리를 참조하세요.
+             https://firebase.google.com/docs/cloud-messaging/android/client -->
+        <!--
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id"/>
+        -->
+    </application>
+</manifest>

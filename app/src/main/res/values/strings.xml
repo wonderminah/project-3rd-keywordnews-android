@@ -1,0 +1,28 @@
+<resources>
+    <!-- 어플리케이션 이름 -->
+    <string name="app_name">Keyword News</string>
+
+    <!-- 카테고리별 이름 -->
+    <string name="title_category">category</string>
+    <string name="title_media">media</string>
+    <string name="title_favorite">favorite</string>
+    <string name="title_history">history</string>
+
+    <!-- 슬라이드 메뉴 이름 -->
+    <string-array name="planets_array">
+        <item>News</item>
+        <item>Keyword</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+        <item>None</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="add_keyword">Add Keyword</string>
+    <string name="facebook_app_id">590716717960995</string> <!-- 페이스북 앱 아이디 -->
+</resources>
